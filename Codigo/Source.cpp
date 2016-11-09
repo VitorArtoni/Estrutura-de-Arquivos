@@ -28,7 +28,7 @@ void gerarArqIndice()
 		}
 		else
 		{
-			int contador = -1, posicao = 0, podeLerRegistros = 0, campo = 0;
+			int contador = -1, posicao = 0, podeLerRegistros = 0;
 			string indice = "";
 
 			while ((ch = fgetc(arqDados)) != EOF) 
@@ -37,20 +37,18 @@ void gerarArqIndice()
 				
 				if (contador==37)//Pula o cabeçalho
 				{
-					posicao = contador - 1;
-					podeLerRegistros = 1;
+					posicao = contador - 1;//posicao = 36
+					podeLerRegistros = 1;//pode começar a criar o arquivo de indices após o cabeçalho
 				}
 
 				if (podeLerRegistros == 1)
 				{
 					if ((ch == 124) || (ch == 35))//Se encontrar um | ou #
 					{
-						cout << indice << "|" << posicao << "\n";
 						fflush(arqIndice);
 						fprintf(arqIndice, "%s|%d\n", indice.c_str(), posicao);
 						indice = "";
 							
-						campo++;
 						posicao = contador;
 					}
 					else
