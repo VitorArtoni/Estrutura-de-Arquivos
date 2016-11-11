@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void gerarArqIndice() 
+void gerarArqIndicePrimario() 
 {
 	FILE *arqIndice, *arqDados;
 	
@@ -19,7 +19,7 @@ void gerarArqIndice()
 	}
 	else 
 	{
-		arqIndice = fopen("indices.txt", "w");
+		arqIndice = fopen("indicesP.txt", "w");
 
 		if (arqIndice == NULL)
 		{
@@ -35,26 +35,26 @@ void gerarArqIndice()
 			{
 				contador++;
 				
-				if (contador==37)//Pula o cabeçalho
-				{
-					posicao = contador - 1;//posicao = 36
-					podeLerRegistros = 1;//pode começar a criar o arquivo de indices após o cabeçalho
-				}
-
 				if (podeLerRegistros == 1)
 				{
-					if ((ch == 124) || (ch == 35))//Se encontrar um | ou #
+					if (ch == 124)//Lê até achar um pipe, quando achar ele para de ler e salva no arquivo
 					{
-						fflush(arqIndice);
+						cout << indice << " " << posicao << "\n";
 						fprintf(arqIndice, "%s|%d\n", indice.c_str(), posicao);
-						indice = "";
-							
-						posicao = contador;
+						fflush(arqIndice);
+						indice = "";	
+						podeLerRegistros = 0;
 					}
-					else
+					else//Concatena os caracteres da chave primária 
 					{
 						indice += ch;
 					}
+				}
+
+				if (ch == 35)//Quando encontra um #
+				{	
+					podeLerRegistros = 1;
+					posicao = contador;
 				}
 			}
 
@@ -70,27 +70,25 @@ int main()
 
 	int op = 0;
 
-	gerarArqIndice();
+	gerarArqIndicePrimario();
 
-	/*	do {
+	/*do
+	{
+		printf("1 - Consultar por chave primária \n");
+		printf("2 - Consultar por chave secundária \n");
+		printf("Digite uma opção: \n");
+		scanf("%d", &op);
 
-	printf("1 - Consultar por chave primária \n");
-	printf("2 - Consultar por chave secundária \n");
-	printf("Digite uma opção: \n");
-	scanf("%d", &op);
+		switch (op)
+		{
 
-	switch (op) {
-
-	case 1:
-	consulta_PK();
-	break;
-
-	case 2:
-	consulta_SK();
-	break;
-	}
-
-
+		case 1:
+		consulta_PK();
+		break;
+		case 2:
+		consulta_SK();
+		break;
+		}
 
 	}while(op=0);
 	*/
