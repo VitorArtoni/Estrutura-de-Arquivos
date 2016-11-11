@@ -1,1 +1,7 @@
-CodigoNetflix|Nome|Personagem1|Personagem2|Personagem3|AnoInicial#22|Gilmore Girls|Lorelai Gilmore|Rory Gilmore|Luke Danes|2000#58|Full House|Jessie Katsópolis|Michelle Tanner|DJ Tanner|1987#81|Game of Thrones|Tyrion Lannister|Jon Snow|Arya Stark|2011#74|How I Met Your Mother|Ted Mosby|Neil Patrick Harris||2005#13|Arrow|Oliver Queen|John Diggle||2012#9|Once Upon a Time|Emma Swan|||2011#
+CodigoNetflix|Nome|Personagem1|Personagem2|Personagem3|AnoInicial
+#22|Gilmore Girls|Lorelai Gilmore|Rory Gilmore|Luke Danes|2000
+#58|Full House|Jessie KatsÃ³polis|Michelle Tanner|DJ Tanner|1987
+#81|Game of Thrones|Tyrion Lannister|Jon Snow|Arya Stark|2011
+#74|How I Met Your Mother|Ted Mosby|Neil Patrick Harris||2005#13|Arrow|Oliver Queen|John Diggle||2012
+#9|Once Upon a Time|Emma Swan|||2011
+#
