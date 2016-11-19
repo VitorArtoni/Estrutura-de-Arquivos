@@ -1,6 +1,7 @@
 package gerenciador.de.arquivos;
 
 import java.io.RandomAccessFile;
+import 
 
 /**
  *
@@ -9,7 +10,17 @@ import java.io.RandomAccessFile;
 class Registro {
 
     static Registro lerRegistro(RandomAccessFile f) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       Registro re = new Registro();
+        Campo camp= Campo.lerDados(arq);
+        re.ISBN=camp;
+        re.titulo=camp;
+        re.autor1=camp;
+        re.autor2=camp;
+        re.autor3=camp;
+        re.ano=camp;
+        
+        return re;
+        
     }
     
     String posicao;
