@@ -1,15 +1,25 @@
 package gerenciador.de.arquivos;
 
 import java.io.RandomAccessFile;
-import 
+
 
 /**
  *
  * @author Vitor
  */
 class Registro {
-
-    static Registro lerRegistro(RandomAccessFile f) {
+    
+        public int Tam(){
+		int tamanhoTotal = 0;
+		int i = 0;
+		while(i < camp.size()){//faz uma verificação do tamaho do campo
+			tamanhoTotal += camp.get(i).dado.length();//recebe tamanho
+			i++;
+		}
+		return tamanhoTotal;
+	}
+    
+    static Registro lerRegistro(RandomAccessFile arq) {
        Registro re = new Registro();
         Campo camp= Campo.lerDados(arq);
         re.ISBN=camp;
