@@ -22,25 +22,38 @@ public class Menu {
 
             Scanner scan = new Scanner(System.in);//essa n entendi hahahaha
             escolha = scan.nextInt();
-
+long tempoInicial = System.currentTimeMillis();
             switch (escolha) {
+                  
+
                 case 1:
+                   
+
                     Indice.inserirRegistro();//chama as funções de inserção
+        
                     break;
                 case 2:
+                    
                     Indice.excluirRegistro();//chama a função de Excluir reg
+                   
                     break;
                 case 3:
+                      
                     menuBuscar();//chama as funções de Busca
+                    
                     break;
                 case 4:
+                   
                     menuListar();//Chama as funções de listar
+                    
                     break;
                 case 5:
                     System.out.println("Saindo...");
                     break;
             }
             new Scanner(System.in).nextLine();
+              long tempoFinal = System.currentTimeMillis();
+                    System.out.printf("Tempo Final: %.3f ms%n", (tempoFinal - tempoInicial) / 1000d);
         }
 
     }
@@ -60,9 +73,11 @@ public class Menu {
             switch (escolha) {
                 case 1:
                     Indice.buscarPorChavePrimaria();
+                  
                     break;
                 case 2:
                     Indice.buscarPorChaveSecundaria();
+                   
                     break;
                 case 3:
                     exibirMenu();
